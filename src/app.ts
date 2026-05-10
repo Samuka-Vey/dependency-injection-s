@@ -1,4 +1,4 @@
-import { ClientController } from "./modules/client/controller/ClientController";
+import { ClientController } from "./modules/client/controllers/ClientController";
 import { ClientRepository } from "./modules/client/repositories/ClientRepository";
 import { ClientService } from "./modules/client/services/ClientService";
 

@@ -1,12 +1,13 @@
 import { Client } from "../entities/Client";
-export class ClientRepository {
+import { IClientRepository } from "./IClientRepository";
+import { CreateClientDTO } from "../dtos/CreateClientDTO";
+import { UpdateClientDTO } from "../dtos/UpdateClientDTO";
+
+export class ClientRepository implements IClientRepository {
   private clients: Client[] = [];
   private idCounter: number = 1;
-  async create(data: {
-    name: string;
-    email: string;
-    password: number;
-  }): Promise<Client> {
+
+  async create(data: CreateClientDTO): Promise<Client> {
     return new Promise((resolve) => {
       setTimeout(() => {
         const client = new Client(
@@ -28,6 +29,7 @@ export class ClientRepository {
       });
     });
   }
+
   async findById(id: number): Promise<Client | null> {
     return new Promise((resolve) => {
       setTimeout(() => {
@@ -37,10 +39,7 @@ export class ClientRepository {
     });
   }
 
-  async update(
-    id: number,
-    data: Partial<{ name: string; email: string; password: number }>,
-  ): Promise<Client | null> {
+  async update(id: number, data: UpdateClientDTO): Promise<Client | null> {
     return new Promise((resolve) => {
       setTimeout(() => {
         const clientIndex = this.clients.findIndex((c) => c.id === id);
@@ -48,6 +47,7 @@ export class ClientRepository {
         if (clientIndex === -1) {
           return resolve(null);
         }
+
         this.clients[clientIndex] = {
           ...this.clients[clientIndex],
           ...data,

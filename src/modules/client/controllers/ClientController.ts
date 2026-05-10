@@ -1,9 +1,11 @@
 import { ClientService } from "../services/ClientService";
+import { CreateClientDTO } from "../dtos/CreateClientDTO";
+import { UpdateClientDTO } from "../dtos/UpdateClientDTO";
 
 export class ClientController {
   constructor(private clientService: ClientService) {}
 
-  async create(data: { name: string; email: string; password: number }) {
+  async create(data: CreateClientDTO) {
     try {
       const client = await this.clientService.create(data);
 
@@ -57,10 +59,7 @@ export class ClientController {
     }
   }
 
-  async update(
-    id: number,
-    data: Partial<{ name: string; email: string; password: number }>,
-  ) {
+  async update(id: number, data: UpdateClientDTO) {
     try {
       const client = await this.clientService.update(id, data);
 
