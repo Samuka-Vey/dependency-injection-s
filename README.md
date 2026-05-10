@@ -7,13 +7,10 @@
 - [x] Criar a estrutura do projeto.
 - [x] Implementar a classe de cliente.
 - [x] Definições básicas de crud
-- [ ] Interface de repositório para abstrair a camada de dados.
-- [ ] Interface de service para abstrair a camada de negócio.
-- [ ] DTOs para validação dos dados de entrada.
-- [ ] Tratamento de erros centralizado.
-- [ ] Implementar um IoC container manual (factory/container).
-- [ ] Migrar para um IoC container real (tsyringe ou inversify).
-- [ ] Adicionar testes unitários no service com mock do repository.
+- [x] Interface de repositório para abstrair a camada de dados.
+- [x] Interface de service para abstrair a camada de negócio.
+- [x] DTOs para validação dos dados de entrada.
+- [x] Tratamento de erros centralizado.
 <p>Para executar o projeto, siga as instruções abaixo:</p>
 
 1. Clone o repositório:

@@ -1,9 +1,11 @@
+import { UpdateClientDTO } from "../dtos/UpdateClientDTO";
 import { ClientRepository } from "../repositories/ClientRepository";
+import { CreateClientDTO } from "../dtos/CreateClientDTO";
 
 export class ClientService {
   constructor(private clientRepository: ClientRepository) {}
 
-  async create(data: { name: string; email: string; password: number }) {
+  async create(data: CreateClientDTO) {
     const clients = await this.clientRepository.read();
     const emailExists = clients.some((c) => c.email === data.email);
 
@@ -36,10 +38,7 @@ export class ClientService {
     return client;
   }
 
-  async update(
-    id: number,
-    data: Partial<{ name: string; email: string; password: number }>,
-  ) {
+  async update(id: number, data: UpdateClientDTO) {
     if (id <= 0) {
       throw new Error("Invalid ID");
     }
